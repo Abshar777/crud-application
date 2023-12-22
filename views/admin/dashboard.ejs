@@ -1,0 +1,314 @@
+<%- include('../layout/adminheader') -%>
+<% if (locals.err) { %>
+    <div class="dltdiv dlt2   ">
+        <i class="ri-close-line addclose text-white position-absolute "></i>
+        <div class="addco d-flex flex-column align-items-center justify-content-center   ">
+            <h3 class="text-white text-capitalize adduser">are you sure </h3>
+            <form action="" method="POST" onsubmit="return validateForm1();" class=" d-flex flex-column align-items-center   ">
+                <label for="name" class="text-capitalize  ">username<span class="text-danger ">*</span></label>
+                <input type="text" name="addname" class="inp text-capitalize " placeholder="enter your user Name " required>
+                <br>
+                <label for="email" class="text-capitalize  ">Email<span class="text-danger ">*</span></label>
+                <input type="email" name="addemail" class="inp text-capitalize " placeholder="enter your e-mail" required>
+                <!-- <br> -->
+               
+                <br>
+                <label for="mobile" class="text-capitalize  ">Phone Number<span class="text-danger ">*</span></label>
+                <input type="number"   name="addmobile" class="inp mn text-capitalize " placeholder="enter your phone-Number"
+                  required>
+                  <p class="mnp "></p>
+                <!-- <br> -->
+                <br>
+                <label for="password" class="text-capitalize  ">password<span class="text-danger ">*</span></label>
+                <input type="password" name="addpassword" class="inp text-capitalize vv" placeholder="enter your password"
+                  required>
+                <i class="i"></i>
+                <button class="btn btn1 text-capitalize text-white bg-primary mt-3"  type="submit">add</button>
+              </form>
+        </div>
+        <div class="logout hj d-flex  align-items-center position-absolute   ps-2 pe-2  justify-content-between ">
+            <%= err %>
+        <i class="ri-close-fill ri fs-6 " onclick="closee();"></i>
+        
+            </div>
+    </div>
+   
+<% } %>
+
+<div class="dltdiv   ">
+ 
+   </div>
+</div>
+    <div class="nav1 container-fluid d-flex align-items-center justify-content-between px-4  ">
+        <div class="right">
+            <i class="ri-menu-5-line text-white fs-4 menu2  "></i>
+        </div>
+        <h4 class="text-white  opacity-25 text-capitalize text-center mb-0 admin"><a href="/admin" class="text-white  text-decoration-none ">admin pannel</a></h4>
+        <div class="left d-flex h-100  align-items-center gap-5   ">
+            <div class="name d-flex h-100 align-items-center gap-1  ">
+                <div class="img-co overflow-hidden   ">
+                    <i class="ri-pencil-line position-absolute text-white d-flex align-items-center justify-content-center edit"></i>
+                    <img src="https://lh3.googleusercontent.com/a/ACg8ocKDUujiPY0pA-FrIwFokjXd9qzBbC3R6jFeNa4zXPlU5JI=s288-c-no"
+                        alt="text">
+                </div>
+                <p class="mb-0">
+                    <%= locals.name %>
+                </p class="mb-0">
+            </div>
+            <a href="/logout" class=" text-white mb-0 text-decoration-none "> <i
+                    class="ri-logout-circle-r-line lo text-white fs-4 opacity-75 "></i></a>
+        </div>
+
+    </div>
+    <div class="hero container-fluid  d-flex justify-content-center gap-3   ">
+        <div class="side d-flex flex-column align-items-center py-4 gap-4  overflow-hidden  ">
+            <i class="ri-contacts-line text-white fs-3 "></i>
+            <i class="ri-mail-send-fill text-white mail fs-3"></i>
+            <i class="ri-notification-3-line text-white  fs-3"></i>
+            <i class="ri-home-gear-line text-white  fs-3"></i>
+            <i class="ri-spotify-line text-whit fs-3"></i>
+            <i class="ri-settings-3-line text-white fs-3 opacity-75 sett"></i>
+            <a href="/logout" class=" text-white  gg text-decoration-none "> <i
+                class="ri-logout-circle-r-line bb text-white fs-3 opacity-75 "></i></a>
+        </div>
+    <div class="cunt  position-relative overflow-hidden d-flex flex-column align-items-center  ">
+        <div class="nav2 position-fixed d-flex align-items-center   gap-3 px-3  ">
+            <i class="ri-menu-2-fill opacity-75  text-white fs-3 "></i>
+            <h3 class="text-white mb-0  ">User's List</h3>
+            <input type="text" name="search"  class="border-0 text-white text-capitalize search " oninput="saveData(this)" placeholder='search &#xF0D1;'>
+            <div  class="btn bg-white text-black  "  >search</div>
+            <div ><button class="btn text-white btn2" onclick="add()">Add<i class="ri-user-add-line text-white "></i></button></div>
+        </div>
+        <div class="hr  "></div>
+        <div class="userlist w-100 ">
+            
+            <% for(var i=0;i<serach.length;i++){ %>
+             
+                
+                <div class="user <%= serach[i].mobile %>   mt-4 d-flex align-items-center px-3 ">
+                    <table class=" <%= serach[i].email %>">
+                   <tr> 
+                    <th><h4 class="mb-0 in1 "><%= i+1 %></h4> </th>
+                    <th><p class="mb-0  in" > <%= serach[i].name.split(' ').slice(-1) %></p > </th>
+                        <th><p class="mb-0  in" > <%= serach[i].email %></p > </th>
+                   
+                            <th><p class="mb-0  in " >  <%= serach[i].mobile %></p ></th>
+                    
+                                <th><button class="btn text-decoration-none fs-5    "   onclick="log('<%= serach[i]._id %>','<%=serach[i].name%>',' <%= serach[i].email %>','<%= serach[i].mobile %>','<%= i+1 %>')"> <i class="ri-edit-2-line  text-white " ></i></button></th>
+                                    <th><button class="btn text-decoration-none fs-5     " onclick="dltop('<%=serach[i].mobile %>','<%=serach[i].name%>')"><i class=" ri-delete-bin-3-line text-white " ></i></button></th>
+              
+                        </tr>
+                    </table>
+                    </div>
+                
+                  
+  <% } %>
+        </div>
+    </div>
+</div>
+
+<script>
+   const menu2=document.querySelector('.menu2');
+   const side=document.querySelector('.side');
+   let bloc=1;
+   menu2.addEventListener('click',()=>{
+    if(bloc===1){
+        side.style.width=`4rem`;
+        bloc=0;
+        
+    }
+    else{
+        side.style.width=`0rem`;
+        bloc=1;
+
+    }
+   }) 
+//new things
+var addclose=document.querySelector('.addclose');
+addclose.addEventListener('click',()=>{
+    cancel()
+})
+//add 
+function add(){
+   
+    const dltdiv=  document.querySelector('.dltdiv');
+      dltdiv.style.zIndex=99999; 
+      dltdiv.style.opacity=1;
+      dltdiv.innerHTML=`   <i class="ri-close-line addclose text-white position-absolute "></i>
+    <div class="addco d-flex flex-column align-items-center justify-content-center   ">
+        <h3 class="text-white text-capitalize adduser">are you sure </h3>
+        <form action="" method="POST" onsubmit="return validateForm1();" class=" d-flex flex-column align-items-center   ">
+            <label for="name" class="text-capitalize  ">username<span class="text-danger ">*</span></label>
+            <input type="text" name="addname" class="inp text-capitalize " placeholder="enter your user Name " required>
+            <br>
+            <label for="email" class="text-capitalize  ">Email<span class="text-danger ">*</span></label>
+            <input type="email" name="addemail" class="inp text-capitalize " placeholder="enter your e-mail" required>
+            <!-- <br> -->
+           
+            <br>
+            <label for="mobile" class="text-capitalize  ">Phone Number<span class="text-danger ">*</span></label>
+            <input type="number"   name="addmobile" class="inp mn text-capitalize " placeholder="enter your phone-Number"
+              required>
+              <p class="mnp "></p>
+            <!-- <br> -->
+            <br>
+            <label for="password" class="text-capitalize  ">password<span class="text-danger ">*</span></label>
+            <input type="password" name="addpassword" class="inp text-capitalize vv" placeholder="enter your password"
+              required>
+            <i class="i"></i>
+            <button class="btn btn1 text-capitalize text-white bg-primary mt-3"  type="submit">add</button>
+          </form>
+    </div>`;
+
+    var mnp = document.querySelector(".mnp")
+    //validateForm
+function validateForm1() {
+    // Get the value of the mobile number input
+
+    var mobileNumber = document.querySelector(".mn").value;
+    // Check if the mobile number has a length of 10
+    if (mobileNumber.length !== 10) {
+        console.log('hello');
+       
+        mnp.textContent=`mobile number has been contain 10 digit`;                          
+        return false; // Prevent form submission
+    }
+    else{
+// If the validation passes, allow the form submission
+return true;
+    }
+
+    
+}
+
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevents the default form submission
+  if (validateForm1()) {
+    // Only submit the form if validation passes
+    form.submit();
+  }
+});
+
+    //close of add user
+var addclose=document.querySelector('.addclose');
+addclose.addEventListener('click',()=>{
+    cancel()
+})
+}
+
+
+
+//edit inner html
+    function log(e,name,email,mobile,i){
+
+       var a=document.getElementsByClassName(mobile)[0];
+       var b=document.getElementsByClassName(email)[0];
+       console.log(b);
+       var g=b.outerHTML;
+       console.log(g);
+     a.innerHTML='';
+     a.innerHTML = `
+    <form action="/admin?id=${mobile}" method="post"   >
+      <table class='${email}'>
+        <tr> 
+          <th><h4 class="mb-0 in1 ">${i}</h4> </th>
+          <th><p class="mb-0 in"><input type="text" name="newname" onkeyup="updateData(this)" class="bg-transparent edit-op text-white border-end-0" value="${name.split(' ').slice(-1)}"></p></th>
+          <th><p class="mb-0 in"><input type="text" name="newemail" onkeyup="updateData(this)" class="bg-transparent edit-op text-white border-end-0" value="${email}"></p></th>
+          <th><p class="mb-0 in"><input type="number" name="newmobile" onkeyup="updateData(this)" class="bg-transparent edit-op text-white border-end-0" value="${mobile}"></p></th>
+          <th><button class="btn text-decoration-none fs-5"  type="submit"> <i class="ri-git-repository-commits-line text-white"></i></button></th>
+          <th><a class="btn text-decoration-none fs-5 cl${mobile}"  ><i class="ri-close-circle-line cl text-white"></i></a></th>
+          </tr>
+          </table>
+          </form>`;
+                    console.log('is don');
+
+  var cl=document.getElementsByClassName(`cl${mobile}`)[0];
+  cl.addEventListener('click',()=>{
+    a.innerHTML=g
+  })
+         }
+ 
+    //dltop
+    function dltop(mobile,name){
+      const dltdiv=  document.querySelector('.dltdiv');
+      dltdiv.style.zIndex=99999; 
+      dltdiv.style.opacity=1;
+      dltdiv.innerHTML=' ';
+      dltdiv.innerHTML=` <div class="dltco d-flex flex-column align-items-center justify-content-center gap-3  ">
+    <h3 class="text-white text-capitalize ">are you sure </h3>
+    <p>user:"${name.split(' ').slice(-1) }"</p>
+    <div class="btnco w-75 d-flex justify-content-center gap-2 ">
+        <form action="/admin?dlt=${mobile}" method="post"   >   
+    <button class="btn btnd text-white text-capitalize " type='submit'>deleat</button>
+    </form>
+    <button class="btn btnc text-black  text-capitalize " onclick="cancel()">cancel</button>
+</div>`
+
+    }     
+
+//dlt op canceling
+function cancel(){
+    const dltdiv=  document.querySelector('.dltdiv');
+    dltdiv.style.zIndex=-1; 
+      dltdiv.style.opacity=0;
+    const dlt2=  document.querySelector('.dlt2');
+    dlt2.style.zIndex=-1; 
+      dlt2.style.opacity=0;
+}
+
+ //dlt         
+ function dlt(mobile){
+    fetch('admin',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({dltID:mobile})
+    }).then(res=>res.json()).then(data=>console.log(data))
+ }
+ 
+// serach inner html
+         function saveData(e) {
+        const userlist=document.querySelector('.userlist');
+       fetch('admin', {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ playload: e.value })
+       }).then(res=>res.json()).then(data=>{
+        let result=data.serach;
+        userlist.innerHTML=``; 
+        console.log(result);
+        if(result.length<1){ userlist.innerHTML=`<h1 class="text-white no text-center opacity-25 ">no result</h1>`
+              return;
+            }
+            else{
+               for(var i=0;i<result.length;i++){
+                   
+                   userlist.innerHTML+=`   
+          <div class="user ${result[i].mobile} mt-4 d-flex align-items-center px-3 ">
+          
+                    <table class='${result[i].email}'>
+                   <tr> 
+                    <th><h4 class="mb-0  in1 ">${i+1}</h4> </th>
+                    <th><p class="mb-0  in" > ${result[i].name.split(' ').slice(-1)} </p > </th>
+                        <th><p class="mb-0  in" >${result[i].email}</p > </th>
+                   
+                            <th><p class="mb-0  in " >${result[i].mobile}</p ></th>
+                    
+                                <th><button class="btn text-decoration-none fs-5    " onclick="return log('${result[i].mobile}','${result[i].name}',' ${result[i].email}','${result[i].mobile}','${i+1}')"> <i class="ri-edit-2-line  text-white " ></i></button></th>
+                                    <th><button class="btn text-decoration-none fs-5     " onclick="dltop('${result[i].mobile}','${result[i].name}')" ><i class=" ri-delete-bin-3-line text-white " ></i></button></th>
+                    </table>
+                    </div>
+          `
+          
+               } 
+            }
+               
+           
+       })
+    }
+ 
+ 
+ </script>
+
+    <%- include('../layout/footer') -%>
+    

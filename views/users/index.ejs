@@ -1,0 +1,47 @@
+<%- include('../layout/header3') -%>
+<%- include('../layout/svg-up') -%>
+<div class="main">
+<div class="container1 d-flex ">
+<div class="right">
+  <div class="heading text-center d-flex   flex-column  align-content-center  justify-content-center ">
+    <h3 class="mb-0 ">Welcome Back</h3>
+    <p class="text-capitalize mb-0">we're so excited to see you again!</p>
+  
+  </div>
+  <form action="/login" method="post" class="d-flex flex-column   ">
+    <label for="email" class="text-capitalize  " >Email<span class="text-danger ">*</span></label>
+    <input type="email" name="email" class="inp text-capitalize " placeholder="enter your e-mail" required>
+     <!-- <br> -->
+     <br>
+     <label for="password" class="text-capitalize  " >password<span class="text-danger ">*</span></label>
+     <input type="password" name="password" class="inp text-capitalize vv" placeholder="enter your password" required>
+     <i class="i"></i>
+     <a href="#" class="fp">forgott password?</a>
+     <button class="btn text-capitalize text-white bg-primary " type="submit">login</button>
+    
+     <a href="/sing-up" class="btn ca text-capitalize text-black  bg-white  " >Sign-Up</a>
+ </form>
+</div>
+<div class="left">
+  <img src="/images/4b5142cc1133a8bff01749335d952840-removebg.png" alt="">
+  <% if(locals.eror){ %>
+  <div class="logout hj d-flex  align-items-center  ps-2 pe-2  justify-content-between ">
+    <%= eror %>
+<i class="ri-close-fill ri fs-6 " onclick="closee();"></i>
+
+    </div>
+    <% } %>
+    <% if(locals.logout){ %>
+      <div class="logout d-flex hj align-items-center  ps-2 pe-2  justify-content-between ">
+       <%= logout %>
+    <i class="ri-close-fill ri fs-6 " onclick="closee();"></i>
+    
+      </div>
+      <% } %>
+</div>
+</div>
+</div>
+
+
+
+<%- include('../layout/footer') -%>

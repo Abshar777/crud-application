@@ -1,0 +1,31 @@
+<%- include('../layout/header2') -%>
+<%- include('../layout/svg2') -%>
+
+                      
+<div class="main">
+    <h1 class="text-capitalize  text-white  text-center ">See if ka efx is right for <span class="span "><%= locals.user ? user : "User" %>.</span> (It totally is.)</h1>
+    <h4 class="text-white  ">your email:-<span class="span "> <%= locals.email  %></span> , and find out how you and your team can change the way you source design, forever.</h3>
+        <a href="/logout" class=" bb ">logeout</a>
+      <img src="/static/6119d6836ada862d90f89116_Divider.png" style="filter: invert(); mix-blend-mode: difference; transform: translateY(3rem);" alt="">
+      <div class="sc text-center d-flex flex-column align-items-center justify-content-center " style="width: 90%; height: 110vh; padding: 3rem 0rem; ">
+      <h1 class="tp mt-0">Membership benefits</h1>
+      <p class="mt-1 " style="width: 40%; ">Perks so good you'll never need to go anywhere else for your design. Seriously.</p>
+        <div class="container-div d-flex flex-wrap  align-items-center  justify-content-center   ">
+            <% products.forEach(function(product) { %>
+          <div class="crd">
+            <div class="crd-v">
+                <i class="<%= product.svg %>"></i>   
+            </div>
+            <div class="crd-t text-capitalize  " >
+                <h3><%= product.title %></h3>
+            </div>
+            <div class="crd-p">
+                <p><%= product.p %></p>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+
+<%- include('../layout/footer') -%>

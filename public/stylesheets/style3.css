@@ -1,0 +1,159 @@
+@font-face {
+    font-family: gg;
+    src: url(../fonts/611aee5b70cc88187b78993c_GRIFTER.ttf);
+}
+
+@font-face {
+    font-family: rob;
+    src: url(../fonts/6118414011c2b9ef95292ecc_PlusJakartaSans-Medium.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: gg;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    background-color: black;
+
+    /* position: relative; */
+    overflow-x: hidden;
+
+
+}
+::-webkit-scrollbar{
+    width: 0;
+}
+.svg{
+    position: absolute;
+}
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rebeccapurple; */
+    position: relative;
+    z-index: 99;
+}
+.container1{
+    width:60%;
+    height:60%;
+    background-color: #313338;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+.right{
+    width: 65%;
+    height: 100%;
+    /* background-color: #fff; */
+    color: #fffffff3;
+}
+.left{
+    width: 35%;
+    height: 100%;
+}
+.heading{
+    width: 100%;
+    height: 23%;
+    
+
+    /* background-color: red; */
+}
+.heading>p{
+    font-family: rob;
+    font-size: .8rem;
+    color: #767a80;
+}
+form{
+    width: 100%;
+    height: 100%;
+    /* padding: 2rem; */
+    transform: translate(2rem,1rem);
+}
+label{
+    color:#b0b5bc;
+}
+.inp{
+    font-family: rob;
+    font-size: .8rem;
+    padding: 0 .4rem;
+    /* text-align: center; */
+    width: 80%;
+    height: 2rem;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #1e1f22;
+    outline: 0px transparent;
+    border: 0px solid #12121293;
+
+}
+.fp{
+    font-size: .8rem;
+    margin-top: .4rem;
+    text-decoration: none;
+   letter-spacing: .5px;
+   font-weight: 100 !important;
+}
+.btn{
+    width: 80%;
+    transform: translateY(.5rem);
+}
+
+.i {
+   position: absolute;
+   transform: translate(25rem,6.6rem);
+    cursor: pointer;
+}
+
+
+.ca{
+    transform: translateY(1.5rem);
+}
+img{
+    width: 100%;
+    transform: translate(-1.8rem ,2rem);
+}
+.logout {
+    display: block !important;
+    border: 1px  solid #00000059;
+    background: lightgreen;
+    position: relative;
+    top: 10%;
+    width: 13rem;
+    height: 2.5rem;
+    transition: all ease 0.5s;
+    border-radius: 5px;
+    box-shadow: 3px 4px 0px 0 #000000b5;
+    
+}
+.hj{
+    background-color: #313338;
+    color: #ffffff;
+}
+.ri{
+    cursor: pointer;
+    transition: all ease 0.5s;
+    
+}
+.ri:hover{
+    transform: rotate(180deg);
+    scale: 1.2;
+}
+.ri:active{
+    transform: rotate(0deg); 
+    scale: .8;
+}
+::selection {
+    background-color: transparent;
+    /* opacity: .5; */
+
+
+}

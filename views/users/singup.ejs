@@ -1,0 +1,49 @@
+<%- include('../layout/header') -%>
+  <%- include('../layout/svg-up') -%>
+    <div class="main">
+      <div class="container1 d-flex ">
+        <div class="right">
+          <div class="heading text-center d-flex    align-content-center  justify-content-center ">
+            <h3 class="mb-0 ">Creat an account</h3>
+
+
+          </div>
+          <form action="/sing-up" method="post" onsubmit="return validateForm();" class="d-flex form1 flex-column   ">
+            <label for="name" class="text-capitalize  ">username<span class="text-danger ">*</span></label>
+            <input type="text" name="name" class="inp text-capitalize " placeholder="enter your user Name " required>
+            <br>
+            <label for="email" class="text-capitalize  ">Email<span class="text-danger ">*</span></label>
+            <input type="email" name="email" class="inp text-capitalize " placeholder="enter your e-mail" required>
+            <!-- <br> -->
+           
+            <br>
+            <label for="mobile" class="text-capitalize  ">Phone Number<span class="text-danger ">*</span></label>
+            <input type="number"   name="mobile" class="inp mn text-capitalize " placeholder="enter your phone-Number"
+              required>
+              <p class="mnp"></p>
+            <!-- <br> -->
+            <br>
+            <label for="password" class="text-capitalize  ">password<span class="text-danger ">*</span></label>
+            <input type="password" name="password" class="inp text-capitalize vv" placeholder="enter your password"
+              required>
+            <i class="i"></i>
+            <a href="#" class="fp">forgott password?</a>
+            <button class="btn btn1 text-capitalize text-white bg-primary "  type="submit">Sing-up</button>
+            <a href="/login" class="btn ca text-capitalize text-black  bg-white  " type="">Login</a>
+          </form>
+        </div>
+
+      </div>
+      <% if(locals.eror){ %>
+        <div class="logout2 hj d-flex  align-items-center  ps-2 pe-2  justify-content-between ">
+          <%= eror %>
+      <i class="ri-close-fill ri fs-6 " onclick="closeee();"></i>
+      
+          </div>
+          <% } %>
+    </div>
+
+
+
+
+    <%- include('../layout/footer') -%>
